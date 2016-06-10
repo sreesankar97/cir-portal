@@ -103,3 +103,38 @@ class Student(models.Model):
 
 
     Objects = StudentManager()
+
+TYPES = (('Technical', _('Technical')), ('HR', _('HR')), ('Quantitative', _('Quantitative')),
+         ('Verbals', _('Verbals')),
+         ('Reasoning', _('Reasoning')),
+         ('Eligibility', _('Eligibility')),
+         ('Aptitude', _('Aptitude'))
+         )
+
+
+class Test(models.Model):
+    id = models.AutoField(primary_key=True)
+
+    date = models.DateField(_('Test Date'), null=False)
+    type = models.CharField(_('Test Type'), max_length=20,
+                            choices=TYPES, blank=False, unique=False)
+
+class TechTests(models.Model):
+    test=models.ForeignKey(Test,null=False,blank=False)
+    student=models.ForeignKey(Student,null=False,blank=False)
+    marks=models.FloatField(_('marks'),blank=True,null=True)
+
+class TechTests(models.Model):
+    test=models.ForeignKey(Test,null=False,blank=False)
+    student=models.ForeignKey(Student,null=False,blank=False)
+    marks=models.FloatField(_('marks'),blank=True,null=True)
+
+class TechTests(models.Model):
+    test=models.ForeignKey(Test,null=False,blank=False)
+    student=models.ForeignKey(Student,null=False,blank=False)
+    marks=models.FloatField(_('marks'),blank=True,null=True)
+
+class TechTests(models.Model):
+    test=models.ForeignKey(Test,null=False,blank=False)
+    student=models.ForeignKey(Student,null=False,blank=False)
+    marks=models.FloatField(_('marks'),blank=True,null=True)
